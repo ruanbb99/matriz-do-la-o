@@ -1,90 +1,5 @@
-@import "tailwindcss";
-
-/* Removed problematic tw-animate-css import and added custom animations */
-
-/* Added custom scrollbar hiding styles for touchpad scrolling */
-@layer utilities {
-  .scrollbar-hide {
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
-    scrollbar-width: none; /* Firefox */
-  }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
-  }
-}
-
-/* Added custom keyframes for slide-in animations */
-@keyframes slide-in-from-top {
-  from {
-    transform: translateY(-0.5rem);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-in-from-bottom {
-  from {
-    transform: translateY(0.5rem);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-in-from-left {
-  from {
-    transform: translateX(-0.5rem);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-in-from-right {
-  from {
-    transform: translateX(0.5rem);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-out-to-left {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-13rem);
-  }
-}
-
-@keyframes slide-out-to-right {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(13rem);
-  }
-}
-
-@keyframes accordion-down {
-  from {
-    height: 0;
-  }
-  to {
-    height: var(--radix-accordion-content-height);
-  }
-}
-
-@keyframes accordion-up {
-  from {
-    height: var(--radix-accordion-content-height);
-  }
-  to {
-    height: 0;
-  }
-}
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -160,10 +75,6 @@
 }
 
 @theme inline {
-  /* Added standard system font variables to replace Geist fonts */
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
-  --font-mono: "SF Mono", Monaco, "Inconsolata", "Roboto Mono", "Source Code Pro", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -200,18 +111,6 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-
-  /* Added animation utilities */
-  --animate-accordion-down: accordion-down 0.2s ease-out;
-  --animate-accordion-up: accordion-up 0.2s ease-out;
-  --animate-slide-in-from-top-2: slide-in-from-top 0.2s ease-out;
-  --animate-slide-in-from-bottom-2: slide-in-from-bottom 0.2s ease-out;
-  --animate-slide-in-from-left-2: slide-in-from-left 0.2s ease-out;
-  --animate-slide-in-from-right-2: slide-in-from-right 0.2s ease-out;
-  --animate-slide-in-from-left-52: slide-in-from-left 0.5s ease-out;
-  --animate-slide-in-from-right-52: slide-in-from-right 0.5s ease-out;
-  --animate-slide-out-to-left-52: slide-out-to-left 0.5s ease-out;
-  --animate-slide-out-to-right-52: slide-out-to-right 0.5s ease-out;
 }
 
 @layer base {
